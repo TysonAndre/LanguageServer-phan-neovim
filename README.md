@@ -5,8 +5,6 @@ This uses Phan's static analysis capabilities to quickly emit diagnostic issue m
 
 This uses [Phan](https://github.com/phan/phan).
 
-**NOTE: This won't work until https://github.com/phan/phan/pull/1144 is merged.**
-
 Also see https://github.com/autozimu/LanguageClient-neovim, which provides features this doesn't, such as auto completion, go to definition, etc.
 
 ## Installation
