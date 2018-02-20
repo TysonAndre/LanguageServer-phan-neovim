@@ -1,7 +1,5 @@
 # LanguageServer-phan-neovim
 
-**Supports Unix/Linux.** Does not support Windows right now (due to a dependency on PHP's `pcntl`).
-
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E=7.1-8892BF.svg)](https://php.net/) [![Gitter](https://badges.gitter.im/phan/phan.svg)](https://gitter.im/phan/phan?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 A PHP language server plugin for [LanguageClient-neovim](https://github.com/autozimu/LanguageClient-neovim).
@@ -40,10 +38,10 @@ However, bugs in this neovim plugin (crashes, etc) or related to the language se
 
 1. PHP 7.1+ must be installed.
    You can either add it to your PATH or set the `g:phan_php_binary` setting in `~/.config/nvim/init.vim`. (e.g. `let g:phan_php_binary = '/usr/local/php7.1/bin/php'`)
-2. Your Operating System must be Unix/Linux
+2. Your Operating System should be Unix/Linux. There is experimental support for Windows.
    (Phan's Language Server Protocol support depends on `pcntl` module being installed, which is only available on those platforms)
+   There is a slower fallback which manually saves and restores Phan's state.
 
-   A future release may support Windows, but it won't be as fast.
 3. (Optional) For optimal performance and accuracy of analysis,
    [the `php-ast` PECL extension](https://pecl.php.net/package/ast) should be installed and enabled.
 
