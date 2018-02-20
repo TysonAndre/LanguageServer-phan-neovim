@@ -50,8 +50,9 @@ Using [vim-plug](https://github.com/junegunn/vim-plug).
 See https://github.com/junegunn/vim-plug#usage if you are unfamiliar with vim-plug. After adding the plugins to your neovim config, `:PlugInstall` must be called to install the plugins.
 
 ```vim
-" call plug#begin('~/.local/share/nvim/plugged') " uncomment if this does not exist
+" call plug#begin('~/.local/share/nvim/plugged') " uncomment if a section with plug#begin does not exist already
 
+" Note: this may need to be 'composer.phar install', or contain the full path to composer.phar
 Plug 'TysonAndre/LanguageServer-phan-neovim',  {'do': 'composer install'}
 " Currently, the Phan Language Server only works with a single directory and that directory must be manually configured.
 let g:phan_analyzed_directory = '~/path/to/project-with-phan-config/'
@@ -59,12 +60,13 @@ let g:phan_analyzed_directory = '~/path/to/project-with-phan-config/'
 " Dependency:
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 
-" call plug#end() " uncomment if this does not exist
+" call plug#end() "  uncomment if a section with plug#begin and plug#end does not exist already
 ```
 
 If you install this plugin manually, then execute the following commands in this directory:
 
 ```sh
+# Or possibly composer.phar install
 composer install
 ```
 
