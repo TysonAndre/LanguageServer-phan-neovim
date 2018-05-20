@@ -66,6 +66,9 @@ let g:phan_analyzed_directory = '~/path/to/project-with-phan-config/'
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 
 " call plug#end() "  uncomment if a section with plug#begin and plug#end does not exist already
+
+" The below setting is recommended for LanguageClient-neovim to stop the left column from flickering on and off
+set signcolumn=yes
 ```
 
 If you install this plugin manually, then execute the following commands in this directory:
@@ -81,4 +84,10 @@ You must add this to your vimrc or neovim config:
 
 ```vim
 autocmd FileType php LanguageClientStart
+```
+
+[LanguageClient - Quick Start](https://github.com/autozimu/LanguageClient-neovim#quick-start) has example configuration.
+
+```vim
+nnoremap <silent> g1 :call LanguageClient#textDocument_definition()<CR>
 ```

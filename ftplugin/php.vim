@@ -34,7 +34,7 @@ endif
 try
 	" register and start phan language server
 	" TODO: Add a vim variable to configure extra options
-	call LanguageClient_registerServerCommands({'php':[ g:phan_php_binary, g:phan_executable_path, '--require-config-exists', '--language-server-on-stdin', '--quick', '--use-fallback-parser', '--allow-polyfill-parser', '--language-server-allow-missing-pcntl', '--project-root-directory', s:analyzed_dir]})
+	call LanguageClient_registerServerCommands({'php':[ g:phan_php_binary, g:phan_executable_path, '--require-config-exists', '--language-server-on-stdin', '--quick', '--use-fallback-parser', '--allow-polyfill-parser', '--language-server-allow-missing-pcntl', '--language-server-enable-go-to-definition', '--project-root-directory', s:analyzed_dir]})
 	" LanguageClientStart
 catch
 	" do nothing
