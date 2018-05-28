@@ -14,6 +14,7 @@ Also see [LanguageServer-php-neovim](https://github.com/roxma/LanguageServer-php
 + Adds improved [error detection from Phan](https://github.com/phan/phan#features) to neovim.
 + Analyze code while you're typing.
 + Analyze remaining statements of code with syntax errors.
++ supports "Go To Definition" (`:call LanguageClient#textDocument_definition()`)
 
 ## Issue Tracker
 
@@ -78,6 +79,7 @@ If you install this plugin manually, then execute the following commands in this
 composer install
 ```
 
+
 ## Configuration
 
 You must add this to your vimrc or neovim config:
@@ -91,3 +93,8 @@ autocmd FileType php LanguageClientStart
 ```vim
 nnoremap <silent> g1 :call LanguageClient#textDocument_definition()<CR>
 ```
+
+## Documentation
+
+`:help LanguageServer-phan-neovim` can be used to see the documentation for this PHP language server.
+`:help LanguageClient` can be used to get documentation for the Vim/NeoVim language client settings.
