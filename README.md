@@ -90,8 +90,13 @@ autocmd FileType php LanguageClientStart
 
 [LanguageClient - Quick Start](https://github.com/autozimu/LanguageClient-neovim#quick-start) has example configuration.
 
+Example aliases
+
 ```vim
+" Go to an element's definition.
 nnoremap <silent> g1 :call LanguageClient#textDocument_definition()<CR>
+" Go to the definition of an element's type.
+nnoremap <silent> g2 :call LanguageClient#textDocument_typeDefinition()<CR>
 ```
 
 ## Documentation
