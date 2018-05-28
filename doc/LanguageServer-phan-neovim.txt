@@ -1,0 +1,19 @@
+*LanguageServer-phan-neovim.txt*	Phan language server support for vim and neovim.
+Tyson Andre                                       *LanguageServer-phan-neovim*
+
+==============================================================================
+CONTENTS                                 *LanguageServer-phan-neovim-contents*
+  1. Configuration.........................|LanguageServer-phan-neovim-config|
+
+==============================================================================
+CONFIGURATION                              *LanguageServer-phan-neovim-config*
+
+                                                   *g:phan_analyzed_directory*
+The root directory of a project with a .phan/config.php file. This is
+mandatory.
+
+                                                           *g:phan_php_binary*
+The binary used to run Phan. Defaults to 'php'.
+
+
+vim:tw=78:ts=8:ft=help:norl:

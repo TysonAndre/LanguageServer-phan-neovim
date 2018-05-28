@@ -1,0 +1,9 @@
+{
+    "name": "LanguageServer-phan-neovim",
+    "description": "Phan language server support for vim and neovim.",
+    "author": "Tyson Andre",
+    "repository": {"type": "git", "url": "git://github.com/TysonAndre/LanguageServer-phan-neovim"},
+    "dependencies": {
+        "LanguageClient-neovim": {"type": "git", "url": "git://github.com/autozimu/LanguageClient-neovim"}
+    }
+}
