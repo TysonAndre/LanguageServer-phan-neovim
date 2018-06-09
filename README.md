@@ -72,13 +72,16 @@ Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.s
 I recommend adding the following to your Vim 8/Neovim settings as well:
 
 ```vim
-" The below setting is recommended for LanguageClient-neovim to stop the left column from flickering on and off
-" It will always show the sign column when the LanguageClient is running.
-" Source: ':help LanguageClient'
+" Based on a snippet from ':help LanguageClient'
 augroup LanguageClient_config
     autocmd!
+    " The below setting is recommended for LanguageClient-neovim
+    " to stop the left column from flickering on and off
     autocmd User LanguageClientStarted setlocal signcolumn=yes
     autocmd User LanguageClientStopped setlocal signcolumn=auto
+    " Discard *all* errors in the QuickFix window if the language server
+    " is stopped manually or crashes
+    autocmd User LanguageClientStopped call setqflist([])
 augroup end
 
 " Optional: This will make the LanguageClient send change notifications every 0.5 seconds (instead of every keystroke).
@@ -117,4 +120,4 @@ nnoremap <silent> g2 :call LanguageClient#textDocument_typeDefinition()<CR>
 ## Documentation
 
 `:help LanguageServer-phan-neovim` can be used to see the documentation for this PHP language server.
-`:help LanguageClient` can be used to get documentation for the Vim/NeoVim language client settings.
+`:help LanguageClient` can be used to get documentation for the Vim/Neovim language client settings.
