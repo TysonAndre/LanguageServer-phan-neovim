@@ -67,9 +67,24 @@ let g:phan_analyzed_directory = '~/path/to/project-with-phan-config/'
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 
 " call plug#end() "  uncomment if a section with plug#begin and plug#end does not exist already
+```
 
+I recommend adding the following to your Vim 8/Neovim settings as well:
+
+```vim
 " The below setting is recommended for LanguageClient-neovim to stop the left column from flickering on and off
-set signcolumn=yes
+" It will always show the sign column when the LanguageClient is running.
+" Source: ':help LanguageClient'
+augroup LanguageClient_config
+    autocmd!
+    autocmd User LanguageClientStarted setlocal signcolumn=yes
+    autocmd User LanguageClientStopped setlocal signcolumn=auto
+augroup end
+
+" Optional: This will make the LanguageClient send change notifications every 0.5 seconds (instead of every keystroke).
+" This affects all language servers you have installed, not just PHP.
+" This may reduce CPU usage and result in a more stable experience.
+let g:LanguageClient_changeThrottle = 0.5
 ```
 
 If you install this plugin manually, then execute the following commands in this directory:
