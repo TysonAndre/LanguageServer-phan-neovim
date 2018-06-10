@@ -72,7 +72,7 @@ Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.s
 Many more settings for the Phan Language Server exist. [`:help LanguageServer-phan-neovim` will bring up documentation for these settings](doc/LanguageServer-phan-neovim.txt)
 
 
-I recommend adding the following to your Vim 8/Neovim settings as well:
+I recommend adding some of the following settings to your Vim 8/Neovim settings as well:
 
 ```vim
 " Based on a snippet from ':help LanguageClient'
@@ -80,17 +80,21 @@ augroup LanguageClient_config
     autocmd!
     " The below setting is recommended for LanguageClient-neovim
     " to stop the left column from flickering on and off
-    autocmd User LanguageClientStarted setlocal signcolumn=yes
-    autocmd User LanguageClientStopped setlocal signcolumn=auto
-    " Discard *all* errors in the QuickFix window if the language server
-    " is stopped manually or crashes
-    autocmd User LanguageClientStopped call setqflist([])
-augroup end
+    " Note: This affects all open panes of vim.
+    " Use setlocal instead of set if you want to only affect the active pane.
+    autocmd User LanguageClientStarted set signcolumn=yes
+    autocmd User LanguageClientStopped set signcolumn=auto
 
-" Optional: This will make the LanguageClient send change notifications every 0.5 seconds (instead of every keystroke).
-" This affects all language servers you have installed, not just PHP.
-" This may reduce CPU usage and result in a more stable experience.
-let g:LanguageClient_changeThrottle = 0.5
+    " Discard *all* errors in the QuickFix window if the language server
+    " stops or crashes
+    autocmd User LanguageClientStopped call setqflist([])
+
+    " This will automatically open the QuickFix window with 5 lines of space
+    " when the language server starts
+    " (and close it when it's stopped or crashes)
+    autocmd User LanguageClientStarted copen 5
+    autocmd User LanguageClientStopped cclose
+augroup end
 ```
 
 If you install this plugin manually, then execute the following commands in this directory:
