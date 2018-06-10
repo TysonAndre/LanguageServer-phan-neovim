@@ -69,6 +69,9 @@ Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.s
 " call plug#end() "  uncomment if a section with plug#begin and plug#end does not exist already
 ```
 
+Many more settings for the Phan Language Server exist. [`:help LanguageServer-phan-neovim` will bring up documentation for these settings](doc/LanguageServer-phan-neovim.txt)
+
+
 I recommend adding the following to your Vim 8/Neovim settings as well:
 
 ```vim
@@ -119,5 +122,5 @@ nnoremap <silent> g2 :call LanguageClient#textDocument_typeDefinition()<CR>
 
 ## Documentation
 
-`:help LanguageServer-phan-neovim` can be used to see the documentation for this PHP language server.
+`:help LanguageServer-phan-neovim` can be used to see [the documentation for this PHP language server](doc/LanguageServer-phan-neovim.txt).
 `:help LanguageClient` can be used to get documentation for the Vim/Neovim language client settings.
