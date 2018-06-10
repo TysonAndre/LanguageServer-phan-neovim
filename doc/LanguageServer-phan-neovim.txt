@@ -15,5 +15,46 @@ mandatory.
                                                            *g:phan_php_binary*
 The binary used to run Phan. Defaults to 'php'.
 
+                                                      *g:phan_executable_path*
+The PHP phan binary (or Phar). Defaults to the version that was hopefully
+installed with this package by `composer.phar install`.
+
+                                                                *g:phan_quick*
+Enable this to speed up Phan analysis by not recursing into function calls.
+Set this to 0 to disable. Defaults to 1 (enabled)
+
+                                                  *g:phan_allow_missing_pcntl*
+Enabled by default. If set to 1, this extension will use a substitute for
+pcntl if pcntl is not installed (New and experimental). This must be set to 1
+on Windows. Set this to 0 to disable. Defaults to 1 (enabled)
+
+                                                  *g:phan_use_fallback_parser*
+Enabled by default. make a best effort at analyzing the remaining valid
+statements of PHP files with syntax errors. Set this to 0 to disable. Default
+is 1 (enabled)
+
+                                                *g:phan_allow_polyfill_parser*
+If set to 1 (default), this extension will run even if php-ast is not
+installed. Installing php-ast is strongly recommended for performance reasons
+and for consistency with full Phan analysis. This can be set to 0 to make Phan
+refuse to start without php-ast
+
+                                            *g:phan_unused_variable_detection*
+Set this to 1 to enable unused variable and parameter detection (analyzes the
+implementations of functions, methods, and closures)" Defaults to 0 (disabled)
+
+                                                         *g:phan_memory_limit*
+The memory limit of Phan (the php language server) in bytes. Format:
+Number[K|M|G] (e.g. '1G' or '200M'). Omit for no memory limit (default).
+
+                                              *g:phan_enable_go_to_definition*
+Enable this to make Phan support 'Go To Definition' requests. Set this to 0 to
+disable. Enabled by default.
+
+                                                 *g:phan_additional_cli_flags*
+Set this to an array to add custom CLI flags when starting the Phan daemon.
+(Example: let g:phan_additional_cli_flags = ['--strict-type-checking'])
+Defaults to the empty array.
+
 
 vim:tw=78:ts=8:ft=help:norl:
