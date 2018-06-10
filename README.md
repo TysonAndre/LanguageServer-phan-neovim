@@ -72,10 +72,20 @@ Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.s
 Many more settings for the Phan Language Server exist. [`:help LanguageServer-phan-neovim` will bring up documentation for these settings](doc/LanguageServer-phan-neovim.txt)
 
 
-I recommend adding some of the following settings to your Vim 8/Neovim settings as well:
+I recommend adding some of the following settings to your Vim 8/Neovim settings as well (this is optional):
 
 ```vim
-" Based on a snippet from ':help LanguageClient'
+function! CopenInBackground()
+    " get current window number
+    let winnum = winnr()
+    " Open the QuickFix window with a height of 5 rows
+    copen 5
+    " Switch back from the QuickFix window to the original window and redraw
+    execute winnum . "wincmd w"
+    :redraw!
+endfunction!
+
+" From :help LanguageClient
 augroup LanguageClient_config
     autocmd!
     " The below setting is recommended for LanguageClient-neovim
@@ -92,7 +102,7 @@ augroup LanguageClient_config
     " This will automatically open the QuickFix window with 5 lines of space
     " when the language server starts
     " (and close it when it's stopped or crashes)
-    autocmd User LanguageClientStarted copen 5
+    autocmd User LanguageClientStarted call CopenInBackground()
     autocmd User LanguageClientStopped cclose
 augroup end
 ```
