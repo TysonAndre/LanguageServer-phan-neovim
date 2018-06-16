@@ -63,6 +63,9 @@ let g:phan_analyzed_directory = '~/path/to/project-with-phan-config/'
 " (Or phan.phar)
 " let g:phan_executable_path = '~/path/to/phan-installation/phan'
 
+" You can also add custom CLI flags manually
+let g:phan_additional_cli_flags = ['--strict-type-checking', '--plugin', 'InvokePHPNativeSyntaxCheckPlugin']
+
 " Dependency:
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 
@@ -128,11 +131,15 @@ autocmd FileType php LanguageClientStart
 Example aliases
 
 ```vim
-" Go to an element's definition.
+" Keyboard shortcuts to go to the definition or type definition.
 nnoremap <silent> g1 :call LanguageClient#textDocument_definition()<CR>
-" Go to the definition of an element's type.
 nnoremap <silent> g2 :call LanguageClient#textDocument_typeDefinition()<CR>
+" These shortcuts (Ctrl-W followed by the key '1', etc.)
+" can be used to open the definition in a new pane.
+nnoremap <silent> <C-W>1 :call LanguageClient#textDocument_definition({'gotoCmd': 'split'})<CR>
+nnoremap <silent> <C-W>2 :call LanguageClient#textDocument_typeDefinition({'gotoCmd': 'split'})
 ```
+
 
 ## Documentation
 
