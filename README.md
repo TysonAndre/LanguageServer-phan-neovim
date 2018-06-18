@@ -134,10 +134,10 @@ Example aliases
 " Keyboard shortcuts to go to the definition or type definition.
 nnoremap <silent> g1 :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> g2 :call LanguageClient#textDocument_typeDefinition()<CR>
-" These shortcuts (Ctrl-W followed by the key '1', etc.)
+" These shortcuts (Ctrl-W followed by the string 'g1', etc.)
 " can be used to open the definition in a new pane.
 nnoremap <silent> <C-W>g1 :call LanguageClient#textDocument_definition({'gotoCmd': 'split'})<CR>
-nnoremap <silent> <C-W>g1 :call LanguageClient#textDocument_typeDefinition({'gotoCmd': 'split'})
+nnoremap <silent> <C-W>g2 :call LanguageClient#textDocument_typeDefinition({'gotoCmd': 'split'})<CR>
 ```
 
 
