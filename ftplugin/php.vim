@@ -150,6 +150,16 @@ if !exists('g:phan_enable_go_to_definition') || g:phan_enable_go_to_definition
 endif
 
 ""
+" @setting g:phan_hide_category_of_issues
+" If true, this will omit Phan's category name from diagnostic
+" (a.k.a. issue) messages.
+" Off by default.
+
+if exists('g:phan_hide_category_of_issues') && g:phan_hide_category_of_issues
+	call add(s:cmd, '--language-server-hide-category')
+endif
+
+""
 " @setting g:phan_additional_cli_flags
 " Set this to an array to add custom CLI flags when starting the Phan daemon.
 " (Example: let g:phan_additional_cli_flags = ['--strict-type-checking'])

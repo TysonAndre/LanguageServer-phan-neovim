@@ -24,7 +24,7 @@ Enable this to speed up Phan analysis by not recursing into function calls.
 Set this to 0 to disable. Defaults to 1 (enabled)
 
                                                  *g:phan_analyze_only_on_save*
-Enable this to run Phan analysis only on file save  (Not while editing the
+Enable this to run Phan analysis only on file save (Not while editing the
 file) This will reduce CPU used and make crashes less likely. Disabled by
 default.
 
@@ -55,6 +55,10 @@ Number[K|M|G] (e.g. '1G' or '200M'). Omit for no memory limit (default).
                                               *g:phan_enable_go_to_definition*
 Enable this to make Phan support 'Go To Definition' requests. Set this to 0 to
 disable. Enabled by default.
+
+                                              *g:phan_hide_category_of_issues*
+If true, this will omit Phan's category name from diagnostic (a.k.a. issue)
+messages. Off by default.
 
                                                  *g:phan_additional_cli_flags*
 Set this to an array to add custom CLI flags when starting the Phan daemon.
