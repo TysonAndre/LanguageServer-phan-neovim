@@ -1,0 +1,25 @@
+<?php
+class C1 {
+    private static $p = [];
+    private $instanceProperty = [];
+    /** @var string */
+    public $publicProperty = 'a string';
+}
+class C2 { protected static $p = []; }
+class C19 { function f() {} }
+C19::f();
+
+class C15 {}
+class C15 {}
+
+function myTest(C1 $arg) {
+    $myVar = '2';
+    if (rand()) { $myVar .= '2'; }
+    print C1::$p;
+    print C2::$p;
+    $v1 = new C1(22);
+    echo $v1;
+    echo strlen();
+    var_export($arg->instanceProperty);
+    echo count($arg->publicProperty);
+}
