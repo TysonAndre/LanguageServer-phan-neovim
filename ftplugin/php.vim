@@ -70,6 +70,17 @@ if !exists('g:phan_quick') || g:phan_quick
 endif
 
 ""
+" @setting g:phan_analyze_only_on_save
+" Enable this to run Phan analysis only on file save
+" (Not while editing the file)
+" This will reduce CPU used and make crashes less likely.
+" Disabled by default.
+
+if exists('g:phan_analyze_only_on_save') && g:phan_analyze_only_on_save
+	call add(s:cmd, '--language-server-analyze-only-on-save')
+endif
+
+""
 " @setting g:phan_allow_missing_pcntl
 " Enabled by default.
 " If set to 1, this extension will use a substitute for pcntl if pcntl is not installed (New and experimental).

@@ -57,11 +57,21 @@ See https://github.com/junegunn/vim-plug#usage if you are unfamiliar with vim-pl
 " Note: this may need to be 'composer.phar install', or contain the full path to composer.phar
 Plug 'TysonAndre/LanguageServer-phan-neovim',  {'do': 'composer install'}
 " Currently, the Phan Language Server only works with a single directory and that directory must be manually configured.
-let g:phan_analyzed_directory = '~/path/to/project-with-phan-config/'
+let g:phan_analyzed_directory = '/home/username/path/to/project-with-phan-config/'
+
+"" As a workaround, you can try to guess other projects on startup based on the current working directory
+" if getcwd() =~ 'my-other-project"
+"  let g:phan_analyzed_directory = '/home/username/path/to/my-other-project/'
+" endif
 
 " You can optionally use a different Phan version from the one that gets bundled with this
 " (Or phan.phar)
 " let g:phan_executable_path = '~/path/to/phan-installation/phan'
+
+" Enable this to run Phan analysis only on file save
+" (Not while editing the file)
+" This will reduce CPU used and make crashes less likely. (LanguageClient-neovim won't automatically restart the server)
+" let g:phan_analyze_only_on_save = 1
 
 " You can also add custom CLI flags manually
 let g:phan_additional_cli_flags = ['--strict-type-checking', '--plugin', 'InvokePHPNativeSyntaxCheckPlugin']

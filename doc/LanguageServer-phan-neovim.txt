@@ -23,6 +23,11 @@ installed with this package by `composer.phar install`.
 Enable this to speed up Phan analysis by not recursing into function calls.
 Set this to 0 to disable. Defaults to 1 (enabled)
 
+                                                 *g:phan_analyze_only_on_save*
+Enable this to run Phan analysis only on file save  (Not while editing the
+file) This will reduce CPU used and make crashes less likely. Disabled by
+default.
+
                                                   *g:phan_allow_missing_pcntl*
 Enabled by default. If set to 1, this extension will use a substitute for
 pcntl if pcntl is not installed (New and experimental). This must be set to 1
