@@ -54,7 +54,7 @@ See https://github.com/junegunn/vim-plug#usage if you are unfamiliar with vim-pl
 "" The below would be ~/.vim/plugged in vim
 " call plug#begin('~/.local/share/nvim/plugged') " uncomment if a section with plug#begin does not exist already
 
-" Note: this may need to be 'composer.phar install', or contain the full path to composer.phar
+" Note: this may need to be 'composer.phar update', or contain the full path to composer.phar.
 Plug 'TysonAndre/LanguageServer-phan-neovim',  {'do': 'composer update'}
 " Currently, the Phan Language Server only works with a single directory and that directory must be manually configured.
 let g:phan_analyzed_directory = '/home/username/path/to/project-with-phan-config/'
