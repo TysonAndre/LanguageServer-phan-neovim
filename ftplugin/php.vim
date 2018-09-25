@@ -150,6 +150,28 @@ if !exists('g:phan_enable_go_to_definition') || g:phan_enable_go_to_definition
 endif
 
 ""
+" @setting g:phan_enable_hover
+" Enable this to make Phan support 'Hover' requests.
+" Set this to 0 to disable.
+" Enabled by default.
+
+if !exists('g:phan_enable_hover') || g:phan_enable_hover
+	let g:phan_enable_hover=1
+	call add(s:cmd, '--language-server-enable-hover')
+endif
+
+""
+" @setting g:phan_enable_completion
+" Enable this to make Phan support 'Completion' requests.
+" Set this to 1 to enable.
+" Disabled by default.
+
+if exists('g:phan_enable_completion') && g:phan_enable_completion
+	let g:phan_enable_completion=1
+	call add(s:cmd, '--language-server-enable-completion')
+endif
+
+""
 " @setting g:phan_hide_category_of_issues
 " If true, this will omit Phan's category name from diagnostic
 " (a.k.a. issue) messages.

@@ -56,6 +56,14 @@ Number[K|M|G] (e.g. '1G' or '200M'). Omit for no memory limit (default).
 Enable this to make Phan support 'Go To Definition' requests. Set this to 0 to
 disable. Enabled by default.
 
+                                                         *g:phan_enable_hover*
+Enable this to make Phan support 'Hover' requests. Set this to 0 to disable.
+Enabled by default.
+
+                                                    *g:phan_enable_completion*
+Enable this to make Phan support 'Completion' requests. Set this to 1 to
+enable. Disabled by default.
+
                                               *g:phan_hide_category_of_issues*
 If true, this will omit Phan's category name from diagnostic (a.k.a. issue)
 messages. Off by default.

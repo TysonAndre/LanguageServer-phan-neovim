@@ -12,9 +12,13 @@ Also see [LanguageServer-php-neovim](https://github.com/roxma/LanguageServer-php
 ## Features
 
 + Adds improved [error detection from Phan](https://github.com/phan/phan#features) to neovim.
-+ Analyze code while you're typing.
-+ Analyze remaining statements of code with syntax errors.
-+ supports "Go To Definition" (`:call LanguageClient#textDocument_definition()`)
++ Analyzes code while you're typing.
++ Analyzes remaining statements of code with syntax errors.
++ Supports "Go To Definition" (`:call LanguageClient#textDocument_definition()`)
++ Supports "Hover" (`:call LanguageClient#textDocument_hover()`)
++ Supports "Completion" (e.g. with C-x o) (requires `let g:phan_enable_completion = 1` to be added to your vim/neovim config)
+
+See [LanguageClient-neovim](https://github.com/autozimu/LanguageClient-neovim/) and [Example Configuration for LanguageServer-phan-neovim](#configuration) for more documentation on how to use these features.
 
 ## Issue Tracker
 
@@ -32,6 +36,14 @@ However, bugs in this neovim plugin (crashes, etc) or related to the language se
 ### Error Detection (Tolerating Syntax Errors)
 
 ![Phan error tolerant parsing demo](https://raw.githubusercontent.com/TysonAndre/LanguageServer-phan-neovim/master/images/tolerant_parsing.png)
+
+### Hover
+
+![Phan hover demo](https://raw.githubusercontent.com/TysonAndre/LanguageServer-phan-neovim/master/images/hover.png)
+
+### Completion
+
+![Phan completion demo](https://raw.githubusercontent.com/TysonAndre/LanguageServer-phan-neovim/master/images/completion.png)
 
 ## Installation
 
@@ -67,6 +79,9 @@ let g:phan_analyzed_directory = '/home/username/path/to/project-with-phan-config
 " You can optionally use a different Phan version from the one that gets bundled with this
 " (Or phan.phar)
 " let g:phan_executable_path = '~/path/to/phan-installation/phan'
+
+" Completion is still experimental, and is disabled by default, but it can be enabled:
+" let g:phan_enable_completion = 1
 
 " Enable this to run Phan analysis only on file save
 " (Not while editing the file)
@@ -144,12 +159,15 @@ Example aliases
 " Keyboard shortcuts to go to the definition or type definition.
 nnoremap <silent> g1 :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> g2 :call LanguageClient#textDocument_typeDefinition()<CR>
+" By default, this hover command opens the hover description in a preview pane, which can be closed with C-w z or C-w C-z
+nnoremap <silent> g3 :call LanguageClient#textDocument_hover()<CR>
 " These shortcuts (Ctrl-W followed by the string 'g1', etc.)
 " can be used to open the definition in a new pane.
 nnoremap <silent> <C-W>g1 :call LanguageClient#textDocument_definition({'gotoCmd': 'split'})<CR>
 nnoremap <silent> <C-W>g2 :call LanguageClient#textDocument_typeDefinition({'gotoCmd': 'split'})<CR>
 ```
 
+Note: By default, LanguageClient-neovim supports code completion requests with `C-x o`
 
 ## Documentation
 
