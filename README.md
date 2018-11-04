@@ -142,6 +142,11 @@ If you install this plugin manually, then execute the following commands in this
 composer install
 ```
 
+## Updating
+
+This repo is updated much less frequently than the Phan repo itself.
+
+To update the version of Phan that is bundled with this client, run `:PlugUpdate! LanguageServer-phan-neovim`
 
 ## Configuration
 
