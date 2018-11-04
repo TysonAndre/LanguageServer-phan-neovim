@@ -64,11 +64,13 @@ See https://github.com/junegunn/vim-plug#usage if you are unfamiliar with vim-pl
 
 ```vim
 "" The below would be ~/.vim/plugged in vim
-" call plug#begin('~/.local/share/nvim/plugged') " uncomment if a section with plug#begin does not exist already
+"" uncomment it if a section with plug#begin does not exist already
+" call plug#begin('~/.local/share/nvim/plugged')
 
 " Note: this may need to be 'composer.phar update', or contain the full path to composer.phar.
 Plug 'TysonAndre/LanguageServer-phan-neovim',  {'do': 'composer update'}
-" Currently, the Phan Language Server only works with a single directory and that directory must be manually configured.
+" Currently, the Phan Language Server only works with a single directory,
+" and that directory must be manually configured.
 let g:phan_analyzed_directory = '/home/username/path/to/project-with-phan-config/'
 
 "" As a workaround, you can try to guess other projects on startup based on the current working directory
@@ -85,11 +87,15 @@ let g:phan_analyzed_directory = '/home/username/path/to/project-with-phan-config
 
 " Enable this to run Phan analysis only on file save
 " (Not while editing the file)
-" This will reduce CPU used and make crashes less likely. (LanguageClient-neovim won't automatically restart the server)
+" This will reduce CPU used and make crashes less likely.
+" (LanguageClient-neovim won't automatically restart the server)
 " let g:phan_analyze_only_on_save = 1
 
 " You can also add custom CLI flags manually
-let g:phan_additional_cli_flags = ['--strict-type-checking', '--plugin', 'InvokePHPNativeSyntaxCheckPlugin']
+let g:phan_additional_cli_flags = [
+  \'--strict-type-checking',
+  \'--plugin', 'InvokePHPNativeSyntaxCheckPlugin'
+  \]
 
 " Dependency:
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
@@ -164,7 +170,8 @@ Example aliases
 " Keyboard shortcuts to go to the definition or type definition.
 nnoremap <silent> g1 :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> g2 :call LanguageClient#textDocument_typeDefinition()<CR>
-" By default, this hover command opens the hover description in a preview pane, which can be closed with C-w z or C-w C-z
+" By default, this hover command opens the hover description in a preview pane,
+" which can be closed with C-w z or C-w C-z
 nnoremap <silent> g3 :call LanguageClient#textDocument_hover()<CR>
 " These shortcuts (Ctrl-W followed by the string 'g1', etc.)
 " can be used to open the definition in a new pane.
