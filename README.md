@@ -68,6 +68,7 @@ See https://github.com/junegunn/vim-plug#usage if you are unfamiliar with vim-pl
 " call plug#begin('~/.local/share/nvim/plugged')
 
 " Note: this may need to be 'composer.phar update', or contain the full path to composer.phar.
+" To update the language server this vim plugin installs, run `:PlugUpdate! LanguageServer-phan-neovim`
 Plug 'TysonAndre/LanguageServer-phan-neovim',  {'do': 'composer update'}
 " Currently, the Phan Language Server only works with a single directory,
 " and that directory must be manually configured.
