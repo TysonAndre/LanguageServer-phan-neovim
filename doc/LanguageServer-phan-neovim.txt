@@ -61,8 +61,8 @@ Enable this to make Phan support 'Hover' requests. Set this to 0 to disable.
 Enabled by default.
 
                                                     *g:phan_enable_completion*
-Enable this to make Phan support 'Completion' requests. Set this to 1 to
-enable. Disabled by default.
+When enabled, Phan supports 'Completion' requests. Set this to 0 to disable.
+Enabled by default.
 
                                               *g:phan_hide_category_of_issues*
 If true, this will omit Phan's category name from diagnostic (a.k.a. issue)

@@ -162,11 +162,11 @@ endif
 
 ""
 " @setting g:phan_enable_completion
-" Enable this to make Phan support 'Completion' requests.
-" Set this to 1 to enable.
-" Disabled by default.
+" When enabled, Phan supports 'Completion' requests.
+" Set this to 0 to disable.
+" Enabled by default.
 
-if exists('g:phan_enable_completion') && g:phan_enable_completion
+if !exists('g:phan_enable_completion') || g:phan_enable_completion
 	let g:phan_enable_completion=1
 	call add(s:cmd, '--language-server-enable-completion')
 endif
