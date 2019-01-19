@@ -7,7 +7,7 @@ This uses Phan's static analysis capabilities to quickly emit diagnostic issue m
 
 This uses [Phan](https://github.com/phan/phan).
 
-Also see [LanguageServer-php-neovim](https://github.com/roxma/LanguageServer-php-neovim), which provides features that this doesn't, such as auto completion, go to definition, etc.
+Also see [LanguageServer-php-neovim](https://github.com/roxma/LanguageServer-php-neovim), a plugin for a different language server (with different features) that this is based on.
 
 ## Features
 
@@ -83,7 +83,7 @@ let g:phan_analyzed_directory = '/home/username/path/to/project-with-phan-config
 " (Or phan.phar)
 " let g:phan_executable_path = '~/path/to/phan-installation/phan'
 
-" Completion is still experimental, and is disabled by default, but it can be enabled:
+" Completion is enabled by default if you're running the latest version of this vim plugin.
 " let g:phan_enable_completion = 1
 
 " Enable this to run Phan analysis only on file save
