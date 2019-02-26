@@ -51,11 +51,7 @@ However, bugs in this neovim plugin (crashes, etc) or related to the language se
 
 1. PHP 7.0+ must be installed.
    You can either add it to your PATH or set the `g:phan_php_binary` setting in `~/.config/nvim/init.vim`. (e.g. `let g:phan_php_binary = '/usr/local/php7.1/bin/php'`)
-2. Your Operating System should be Unix/Linux. There is experimental support for Windows.
-   (Phan's Language Server Protocol support depends on `pcntl` module being installed, which is only available on those platforms)
-   There is a slower fallback which manually saves and restores Phan's state.
-
-3. (Optional) For optimal performance and accuracy of analysis,
+2. (Optional) For optimal performance and accuracy of analysis,
    [the `php-ast` PECL extension](https://pecl.php.net/package/ast) should be installed and enabled.
 
 Using [vim-plug](https://github.com/junegunn/vim-plug).
