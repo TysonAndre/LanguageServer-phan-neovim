@@ -174,6 +174,7 @@ nnoremap <silent> g3 :call LanguageClient#textDocument_hover()<CR>
 " can be used to open the definition in a new pane.
 nnoremap <silent> <C-W>g1 :call LanguageClient#textDocument_definition({'gotoCmd': 'split'})<CR>
 nnoremap <silent> <C-W>g2 :call LanguageClient#textDocument_typeDefinition({'gotoCmd': 'split'})<CR>
+nnoremap <silent> <C-W>g3 :call LanguageClient#textDocument_hover()<CR>
 ```
 
 Note: By default, LanguageClient-neovim supports code completion requests with `C-x o`
