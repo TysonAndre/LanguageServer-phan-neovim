@@ -197,7 +197,13 @@ endif
 try
 	" register and start phan language server
 	" TODO: Add a vim variable to configure extra options
-	call LanguageClient_registerServerCommands({'php': (s:cmd)})
+	" call LanguageClient_registerServerCommands({'php': (s:cmd)})
+	" pip install python-language-server
+	au User lsp_setup call lsp#register_server({
+		\ 'name': 'phan',
+		\ 'cmd': {server_info->s:cmd},
+		\ 'whitelist': ['php', 'html'],
+		\ })
 	" LanguageClientStart
 catch
 	" do nothing
