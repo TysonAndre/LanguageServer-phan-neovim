@@ -49,7 +49,7 @@ However, bugs in this neovim plugin (crashes, etc) or related to the language se
 
 ### Dependencies:
 
-1. PHP 7.0+ must be installed.
+1. PHP 7.2+ must be installed.
    You can either add it to your PATH or set the `g:phan_php_binary` setting in `~/.config/nvim/init.vim`. (e.g. `let g:phan_php_binary = '/usr/local/php7.1/bin/php'`)
 2. (Optional) For optimal performance and accuracy of analysis,
    [the `php-ast` PECL extension](https://pecl.php.net/package/ast) should be installed and enabled.
