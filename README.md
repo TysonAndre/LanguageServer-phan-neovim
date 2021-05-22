@@ -59,6 +59,12 @@ Using [vim-plug](https://github.com/junegunn/vim-plug).
 See https://github.com/junegunn/vim-plug#usage if you are unfamiliar with vim-plug. After adding the plugins to your neovim config, `:PlugInstall` must be called to install the plugins.
 
 ```vim
+" Oddly, LanguageClient seems to need a key in LanguageClient_serverCommands when starting up in order for this plugin to work.
+" Use literally anything as a placeholder. even 'php': ['/bin/false'],
+let g:LanguageClient_serverCommands = {
+    \ 'php': [$HOME . '/.vim/plugged/LanguageServer-phan-neovim/vendor/phan/phan/phan', '--require-config-exists', '--language-server-on-stdin', '--quick', '--language-server-allow-missing-pcntl', '--use-fallback-parser', '--allow-polyfill-parser', '--memory-limit', '2G', '--language-server-enable-go-to-definition', '--language-server-enable-hover', '--language-server-enable-completion', '--language-server-hide-category', '--analyze-all-files', '--plugin', 'InvokePHPNativeSyntaxCheckPlugin'],
+    \ }
+
 "" The below would be ~/.vim/plugged in vim
 "" uncomment it if a section with plug#begin does not exist already
 " call plug#begin('~/.local/share/nvim/plugged')
